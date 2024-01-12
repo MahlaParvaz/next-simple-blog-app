@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@/components/*": ["src/components/*"],
-      "@/containers/*": ["src/containers/*"],
-      "@/context/*": ["src/context/*"],
-      "@/hooks/*": ["src/hooks/*"],
-      "@/common/*": ["src/common/*"],
-      "@/utils/*": ["src/utils/*"],
-      "@/services/*": ["src/services/*"]
+      "@/components/*": ["components/*"],
+      "@/containers/*": ["containers/*"],
+      "@/context/*": ["context/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/common/*": ["common/*"],
+      "@/utils/*": ["utils/*"],
+      "@/services/*": ["services/*"]
     }
   }
 }

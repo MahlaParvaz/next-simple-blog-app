@@ -22,25 +22,20 @@ const CategoryDesktop = ({ postCategories }) => {
       </div>
       {/* accordion content */}
       <div className={`${isOpen ? 'block' : 'hidden'}`}>
-        {/* <Link href="/blogs">
-          <a
-            className={`block pr-4 py-2 hover:bg-purple-50 mb-1 ${
-              !query.categorySlug ? "bg-purple-700 text-white hover:bg-purple-500" : ""
-            }`}
-          >
+        <Link href="/blogs">
+          <span className="block pr-4 py-2 hover:bg-purple-50 mb-1">
             همه مقالات
-          </a>
-        </Link> */}
+          </span>
+        </Link>
         {postCategories.map((category) => {
           return (
-            (<Link
+            <Link
               href={`/blogs/${category.englishTitle}`}
               key={category._id}
-              className="block pr-4 py-2 hover:bg-purple-50 mb-1">
-
+              className="block pr-4 py-2 hover:bg-purple-50 mb-1"
+            >
               {category.title}
-
-            </Link>)
+            </Link>
           );
         })}
       </div>

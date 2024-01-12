@@ -1,7 +1,8 @@
-import CategoryMobile from '../../components/posts/CategoryMobile';
-import CategoryDesktop from '../../components/posts/CategoryDesktop';
-import SortBar from '../../components/posts/sortBar';
-import PostList from '../../components/posts/PostList';
+
+import CategoryDesktop from '@/components/posts/CategoryDesktop';
+import CategoryMobile from '@/components/posts/CategoryMobile';
+import PostList from '@/components/posts/PostList';
+import SortBar from '@/components/posts/SortBar';
 import axios from 'axios';
 
 export default function BlogPage({ blogsData, postCategories }) {
