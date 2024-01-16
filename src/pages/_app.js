@@ -1,21 +1,13 @@
+import AuthProvider from '@/context/AuthContext';
 import '../../styles/global.css';
-// import { Toaster } from 'react-hot-toast';
-// import { wrapper } from 'src/redux/store';
-// import { useEffect } from 'react';
-// import { loadUserData } from 'src/redux/user/userActions';
-// import { useStore } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
 
 function MyApp({ Component, pageProps }) {
-  //   const store = useStore();
-
-  //   useEffect(() => {
-  //     loadUserData(store);
-  //   }, []);
-
   return (
-    <div>
+    <AuthProvider>
       <Component {...pageProps} />
-    </div>
+      <Toaster />
+    </AuthProvider>
   );
 }
 

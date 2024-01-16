@@ -8,7 +8,7 @@
 
 const SortBar = () => {
   return (
-    <div className="bg-white rounded-3xl px-4 flex items-center">
+    <div className="bg-white rounded-3xl px-4 flex items-center h-12">
       <div className="flex gap-x-2 items-center ml-4">
         {/* <AdjustmentsIcon className="w-6 h-6" /> */}
         <span className="text-gray-700">مرتب سازی:</span>
