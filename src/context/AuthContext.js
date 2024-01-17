@@ -1,13 +1,12 @@
+import { createContext, useContext, useEffect } from 'react';
 import http from '@/services/httpService';
-import { Router } from 'next/router';
+import Router from 'next/router';
 import toast from 'react-hot-toast';
 import { useReducerAsync } from 'use-reducer-async';
 
-const { createContext, useContext, useEffect } = require('react');
-
 const AuthContext = createContext();
-
 const AuthContextDispatcher = createContext();
+
 const initialState = { user: null, loading: true, error: null };
 
 const reducer = (state, action) => {
@@ -98,7 +97,7 @@ const AuthProvider = ({ children }) => {
   );
   useEffect(() => {
     dispatch({ type: 'LOAD_USER' });
-  }, [dispatch]);
+  }, []);
   return (
     <AuthContext.Provider value={user}>
       <AuthContextDispatcher.Provider value={dispatch}>
