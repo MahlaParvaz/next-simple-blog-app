@@ -1,37 +1,33 @@
-// import http from '@/services/httpService';
-// import routerPush from '@/utils/routerPush';
-// import axios from 'axios';
-// import { useRouter } from 'next/router';
+import http from '@/services/httpService';
+import routerPush from '@/utils/routerPush';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
-// import toast from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const CommentForm = ({ postId, responseTo, setOnreply }) => {
   const [commentValue, setCommentValue] = useState('');
-  //   const router = useRouter();
 
-  //   const submitHandler = (e) => {
-  //     e.preventDefault();
+  const router = useRouter();
 
-  //     const data = {
-  //       content: commentValue,
-  //       responseTo,
-  //       postId,
-  //     };
-
-  //     axios
-  //       .post('/post-comment/save-comment', data)
-  //       .then((res) => {
-  //         setCommentValue('');
-  //         if (setOnreply) setOnreply((open) => !open);
-
-  //         toast.success(res.data.message);
-  //         routerPush(router);
-  //       })
-  //       .catch((err) => {
-  //         toast.error(err?.response?.data?.message);
-  //       });
-  //   };
-
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const data = {
+      content: commentValue,
+      responseTo,
+      postId,
+    };
+    http
+      .post('/post-comment/save-comment', data)
+      .then((res) => {
+        setCommentValue('');
+        if (setOnreply) setOnreply((open) => !open);
+        toast.success(res.data.message);
+        routerPush(router);
+      })
+      .catch((err) => {
+        toast.error(err?.response?.data?.message);
+      });
+  };
   return (
     <form>
       <textarea
@@ -42,7 +38,7 @@ const CommentForm = ({ postId, responseTo, setOnreply }) => {
       />
       <button
         className="mt-4 mx-auto py-3 w-full sm:w-56 bg-violet-700 rounded-2xl text-white px-3 md:text-lg"
-        // onClick={submitHandler}
+        onClick={submitHandler}
       >
         ارسال نظر
       </button>

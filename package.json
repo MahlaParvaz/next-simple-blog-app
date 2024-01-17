@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
     "@heroicons/react": "^2.1.1",
+    "@mui/base": "^5.0.0-beta.32",
+    "@mui/material": "^5.15.5",
     "axios": "^1.6.5",
     "formik": "^2.4.5",
     "next": "14.0.4",

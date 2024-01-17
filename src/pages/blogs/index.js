@@ -1,10 +1,10 @@
+import PaginationComponent from '@/common/Pagination';
 import CategoryDesktop from '@/components/posts/CategoryDesktop';
 import CategoryMobile from '@/components/posts/CategoryMobile';
 import PostList from '@/components/posts/PostList';
 import SortBar from '@/components/posts/SortBar';
 import Layout from '@/containers/Layout';
 import http from '@/services/httpService';
-import axios from 'axios';
 import queryString from 'query-string';
 
 export default function BlogPage({ blogsData, postCategories }) {
@@ -21,6 +21,10 @@ export default function BlogPage({ blogsData, postCategories }) {
           </div>
           <div className="md:col-span-9 grid grid-cols-6 gap-8">
             <PostList blogsData={blogsData.docs} />
+            <PaginationComponent
+              page={blogsData.page}
+              totalPages={blogsData.totalPages}
+            />
           </div>
         </div>
       </div>

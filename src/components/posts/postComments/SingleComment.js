@@ -1,15 +1,14 @@
 import toLocalDate from '@/utils/toLocalDate';
 import { UserCircleIcon } from '@heroicons/react/24/outline';
-import { UserIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
-// import CommentForm from './commentForm';
+import CommentForm from './commentForm';
 
 const SignleComment = ({ comment, postId }) => {
   const [onReply, setOnreply] = useState(false);
   return (
     <div className="rounded-xl mb-8 overflow-hidden shadow-lg border border-gray-100 bg-white">
       <div className="flex items-center justify-start bg-gray-50 px-4 py-2">
-        {/* <UserCircleIcon className="w-12 h-12 stroke-gray-400" strokeWidth={1} /> */}
+        <UserCircleIcon className="w-12 h-12 stroke-gray-400" strokeWidth={1} />
         <div className="flex flex-col justify-between mr-4">
           <span className="block text-sm text-gray-600">
             {comment.writer?.name}
@@ -33,11 +32,11 @@ const SignleComment = ({ comment, postId }) => {
             <span className="text-gray-500 text-sm">
               در حال پاسخ به {comment.writer?.name}
             </span>
-            {/* <CommentForm
+            <CommentForm
               postId={postId}
               responseTo={comment._id}
               setOnreply={setOnreply}
-            /> */}
+            />
           </div>
         )}
       </div>

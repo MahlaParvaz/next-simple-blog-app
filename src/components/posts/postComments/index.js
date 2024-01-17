@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CommentForm from './commentForm';
 import ReplyComment from './ReplyComment';
 import SignleComment from './SingleComment';
