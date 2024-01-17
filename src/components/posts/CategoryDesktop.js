@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const CategoryDesktop = ({ postCategories }) => {
   const [isOpen, setIsOpen] = useState(true);
-  //   const { query } = useRouter();
+  const { query } = useRouter();
 
   return (
     <div className="bg-white rounded-3xl overflow-hidden sticky top-24 ">
@@ -23,18 +23,28 @@ const CategoryDesktop = ({ postCategories }) => {
       {/* accordion content */}
       <div className={`${isOpen ? 'block' : 'hidden'}`}>
         <Link href="/blogs">
-          <span className="block pr-4 py-2 hover:bg-purple-50 mb-1">
+          <div
+            className={`block pr-4 py-2 hover:bg-purple-50 mb-1 ${
+              !query.categorySlug
+                ? 'bg-purple-700 text-white hover:bg-purple-500'
+                : ''
+            }`}
+          >
             همه مقالات
-          </span>
+          </div>
         </Link>
         {postCategories.map((category) => {
           return (
-            <Link
-              href={`/blogs/${category.englishTitle}`}
-              key={category._id}
-              className="block pr-4 py-2 hover:bg-purple-50 mb-1"
-            >
-              {category.title}
+            <Link href={`/blogs/${category.englishTitle}`} key={category._id}>
+              <div
+                className={`block pr-4 py-2 hover:bg-purple-50 mb-1 ${
+                  query.categorySlug === category.englishTitle
+                    ? 'bg-purple-700 text-white hover:bg-purple-500'
+                    : ''
+                }`}
+              >
+                {category.title}
+              </div>
             </Link>
           );
         })}
