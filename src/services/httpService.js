@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // console.log(process.env.BASE_API_URL);
 const app = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: process.env.NEXT_PUBLIC_BASE_API_URL,
   withCredentials: true,
 });
 

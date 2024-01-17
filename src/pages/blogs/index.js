@@ -3,6 +3,7 @@ import CategoryMobile from '@/components/posts/CategoryMobile';
 import PostList from '@/components/posts/PostList';
 import SortBar from '@/components/posts/SortBar';
 import Layout from '@/containers/Layout';
+import http from '@/services/httpService';
 import axios from 'axios';
 
 export default function BlogPage({ blogsData, postCategories }) {
@@ -26,11 +27,13 @@ export default function BlogPage({ blogsData, postCategories }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const { data: result } = await axios.get('http://localhost:5000/api/posts');
-  const { data: postCategories } = await axios.get(
-    'http://localhost:5000/api/post-category'
-  );
+export async function getServerSideProps({ req }) {
+  const { data: result } = await http.get('/posts?limit=6&page=1', {
+    headers: {
+      Cookie: req.headers.cookie || '',
+    },
+  });
+  const { data: postCategories } = await http.get('/post-category');
   const { data } = result;
 
   return {
